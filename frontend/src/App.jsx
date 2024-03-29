@@ -1,17 +1,21 @@
-import { useState } from 'react';
-import { Button } from "@/components/ui/button"
-
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import Registration from './pages/Registration';
+import Videos from "./pages/Videos";
+import AssessmentPage from "./pages/AssessmentPage";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <h1 className = "text-stone-400 bg-slate-900 text-center">Welcome to Performance Management System</h1>
-      <Button variant = "outline">Click Me</Button>
-      
-    </div>
+    <BrowserRouter>
+   
+          <Routes>
+              <Route path = "register/" element = {<Registration />} />
+              <Route path = "hr/videos/" element = {<Videos />} />
+              <Route path = "hr/assessments/:video_id/" element = {<AssessmentPage />} />
+          </Routes>
+
+    </BrowserRouter>
   )
 }
 
-export default App
+export default App;
